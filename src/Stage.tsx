@@ -1,7 +1,7 @@
-import {useEffect,useRef} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import type {Artwork} from './types';
 export function Stage({artworks,onSelect,newId}:{artworks:Artwork[];onSelect:(art:Artwork)=>void;newId?:string}){
- const ref=useRef<HTMLCanvasElement>(null);const callback=useRef(onSelect);callback.current=onSelect;
+ const ref=useRef<HTMLCanvasElement>(null);const callback=useRef(onSelect);callback.current=onSelect;const [hover,setHover]=useState<{art:Artwork;x:number;y:number}|null>(null);
  useEffect(()=>{
   const canvas=ref.current!;const ctx=canvas.getContext('2d')!;let raf=0,width=0,height=0,last=0,time=0,disposed=false;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -23,9 +23,12 @@ export function Stage({artworks,onSelect,newId}:{artworks:Artwork[];onSelect:(ar
     }
    }raf=requestAnimationFrame(draw);
   };raf=requestAnimationFrame(draw);
-  const click=(e:MouseEvent)=>{const r=canvas.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;const c=[...cats].reverse().find(c=>Math.abs(x-c.drawX)<c.size*.6&&Math.abs(y-c.drawY)<c.size*.65);if(c)callback.current(c.art);};
-  canvas.addEventListener('click',click);
-  return()=>{disposed=true;cancelAnimationFrame(raf);observer.disconnect();canvas.removeEventListener('click',click);};
+  const hit=(e:MouseEvent)=>{const r=canvas.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;return [...cats].reverse().find(c=>Math.abs(x-c.drawX)<c.size*.6&&Math.abs(y-c.drawY)<c.size*.65);};
+  const click=(e:MouseEvent)=>{const c=hit(e);if(c)callback.current(c.art);};
+  const move=(e:MouseEvent)=>{const c=hit(e);if(c){const r=canvas.getBoundingClientRect();setHover({art:c.art,x:Math.max(90,Math.min(r.width-90,c.drawX)),y:Math.max(85,c.drawY-c.size*.48)});}else setHover(null);};
+  const leave=()=>setHover(null);
+  canvas.addEventListener('click',click);canvas.addEventListener('mousemove',move);canvas.addEventListener('mouseleave',leave);
+  return()=>{disposed=true;cancelAnimationFrame(raf);observer.disconnect();canvas.removeEventListener('click',click);canvas.removeEventListener('mousemove',move);canvas.removeEventListener('mouseleave',leave);};
  },[artworks,newId]);
- return <canvas ref={ref} className="cat-stage" aria-label="猫咪活动舞台；也可以通过下方作品卡片打开详情"/>;
+ return <><canvas ref={ref} className="cat-stage" aria-label="猫咪活动舞台；点击猫咪查看详情"/>{hover&&<div className="stage-hover-card" style={{left:hover.x,top:hover.y}}><img src={hover.art.imageUrl} alt=""/><div><strong>{hover.art.catName}</strong><span>{hover.art.artistName}</span><small>{new Date(hover.art.createdAt).toLocaleDateString('zh-CN')}</small></div></div>}</>;
 }
