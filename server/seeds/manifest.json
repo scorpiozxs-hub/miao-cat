@@ -1,0 +1,30 @@
+{
+  "source": "Original hand-authored sample SVGs from src/art.ts",
+  "license": "Review project asset rights before external publication; no third-party seed pack was downloaded",
+  "items": [
+    {
+      "file": "cat-0.png",
+      "name": "橘子汽水"
+    },
+    {
+      "file": "cat-1.png",
+      "name": "星期八"
+    },
+    {
+      "file": "cat-2.png",
+      "name": "一颗芋圆"
+    },
+    {
+      "file": "cat-3.png",
+      "name": "不想上班"
+    },
+    {
+      "file": "cat-4.png",
+      "name": "草莓团子"
+    },
+    {
+      "file": "cat-5.png",
+      "name": "歪歪"
+    }
+  ]
+}

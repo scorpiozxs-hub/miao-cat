@@ -1,0 +1,8 @@
+// Invokes the officially authenticated CLI without reading or printing its credentials.
+const {execFileSync}=require('node:child_process');const fs=require('node:fs');const path=require('node:path');
+const root=path.resolve(__dirname,'..');const envId=process.env.TCB_ENV||JSON.parse(fs.readFileSync(path.join(root,'cloudbaserc.json'),'utf8')).envId;
+function cliPath(){if(process.env.TCB_CLI_PATH)return process.env.TCB_CLI_PATH;const cache=path.join(process.env.npm_config_cache||(process.env.LOCALAPPDATA?path.join(process.env.LOCALAPPDATA,'npm-cache'):path.join(require('node:os').homedir(),'.npm')),'_npx');for(const folder of fs.existsSync(cache)?fs.readdirSync(cache):[]){const candidate=path.join(cache,folder,'node_modules','@cloudbase','cli','dist','standalone','cli.js');if(fs.existsSync(candidate))return candidate;}throw Error('Run npx @cloudbase/cli login first, or set TCB_CLI_PATH to the official cli.js file.');}
+function run(args){try{const output=execFileSync(process.execPath,[cliPath(),...args,'-e',envId,'-r','ap-shanghai','--json'],{cwd:root,encoding:'utf8',timeout:120000,windowsHide:true,maxBuffer:2*1024*1024});return JSON.parse(output.slice(output.indexOf('{')));}catch(e){let message=String(e.stdout||e.message);try{const body=JSON.parse(message);message=body.error?.message||message;}catch{}throw Error(message);}}
+function api(action,body){return run(['api','tcb',action,'--body',JSON.stringify({EnvId:envId,...body})]);}
+if(require.main===module){const [action,file]=process.argv.slice(2);const input=file?JSON.parse(fs.readFileSync(file,'utf8')):{};console.log(JSON.stringify(api(action,input),null,2));}
+module.exports={api,run,envId};

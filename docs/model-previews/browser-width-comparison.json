@@ -1,0 +1,49 @@
+{
+  "old28": {
+    "3": {
+      "accuracy": 0.1625,
+      "catPassRate": 0.0,
+      "nonCatFalsePassRate": 0.0,
+      "catSamples": 20,
+      "nonCatSamples": 140
+    },
+    "7": {
+      "accuracy": 0.16875,
+      "catPassRate": 0.0,
+      "nonCatFalsePassRate": 0.0,
+      "catSamples": 20,
+      "nonCatSamples": 140
+    },
+    "20": {
+      "accuracy": 0.24375,
+      "catPassRate": 0.0,
+      "nonCatFalsePassRate": 0.0,
+      "catSamples": 20,
+      "nonCatSamples": 140
+    }
+  },
+  "new64": {
+    "3": {
+      "accuracy": 0.85,
+      "catPassRate": 1.0,
+      "nonCatFalsePassRate": 0.05,
+      "catSamples": 20,
+      "nonCatSamples": 140
+    },
+    "7": {
+      "accuracy": 0.8625,
+      "catPassRate": 0.85,
+      "nonCatFalsePassRate": 0.014285714285714285,
+      "catSamples": 20,
+      "nonCatSamples": 140
+    },
+    "20": {
+      "accuracy": 0.8875,
+      "catPassRate": 0.85,
+      "nonCatFalsePassRate": 0.007142857142857143,
+      "catSamples": 20,
+      "nonCatSamples": 140
+    }
+  },
+  "method": "Same 160 held-out raw drawings painted with actual H5 Canvas smoothing at 800px; brush widths 3/7/20; actual browser old/new preprocessing. No cloud requests. 20 cats per width is a small diagnostic, not population accuracy."
+}

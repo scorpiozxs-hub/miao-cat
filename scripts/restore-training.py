@@ -1,0 +1,26 @@
+"""Verify release SHA256 sums and restore allowlisted training folders without overwriting."""
+import argparse,hashlib,json,zipfile
+from pathlib import Path,PurePosixPath
+ROOT=Path(__file__).resolve().parents[1]
+
+def main():
+    p=argparse.ArgumentParser();p.add_argument('archive_directory',type=Path);args=p.parse_args()
+    checks={line.split('  ',1)[1]:line.split('  ',1)[0] for line in (args.archive_directory/'SHA256SUMS.txt').read_text().splitlines() if line.strip()}
+    for name in ['miao-cat-training-state.zip','miao-cat-drawing-data.zip']:
+        archive=args.archive_directory/name
+        if hashlib.sha256(archive.read_bytes()).hexdigest()!=checks[name]:raise ValueError('Checksum mismatch: '+name)
+        with zipfile.ZipFile(archive) as z:
+            manifest=json.loads(z.read('MIGRATION-FILES.json'));expected={entry['path']:entry for entry in manifest}
+            for item in z.infolist():
+                if item.filename=='MIGRATION-FILES.json':continue
+                rel=PurePosixPath(item.filename)
+                if rel.is_absolute() or '..' in rel.parts or rel.parts[:2] not in [('training','data'),('training','artifacts')]:raise ValueError('Unexpected archive path')
+                target=(ROOT/Path(*rel.parts)).resolve()
+                if not target.is_relative_to(ROOT.resolve()):raise ValueError('Path escapes workspace')
+                data=z.read(item);entry=expected[item.filename]
+                if len(data)!=entry['bytes'] or hashlib.sha256(data).hexdigest()!=entry['sha256']:raise ValueError('Invalid file: '+item.filename)
+                if target.exists():
+                    if hashlib.sha256(target.read_bytes()).hexdigest()!=entry['sha256']:raise ValueError('Refusing to overwrite changed file: '+str(target))
+                else:target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
+        print('Verified and restored',name)
+if __name__=='__main__':main()

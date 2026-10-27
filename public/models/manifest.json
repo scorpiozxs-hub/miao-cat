@@ -1,0 +1,57 @@
+{
+  "modelVersion": "quickdraw-8class-64-v2",
+  "preprocessVersion": "alpha-area-64-v2",
+  "url": "/models/quickdraw-8class-64.onnx",
+  "sha256": "8e0a9afacf629205035f3698b64c075778be03ae5c2659895d1352008b43f29d",
+  "externalData": [
+    {
+      "path": "quickdraw-8class-64.onnx.data",
+      "url": "/models/quickdraw-8class-64.onnx.data",
+      "sha256": "20054145b09ab28847d6c5a4af649aa53005ae58f7a031235ecd1c1cfd99ad8f"
+    }
+  ],
+  "input": {
+    "name": "image",
+    "shape": [
+      1,
+      1,
+      64,
+      64
+    ],
+    "dtype": "float32",
+    "foreground": "alpha",
+    "background": 0,
+    "padding": 4,
+    "resize": "integer-area-coverage",
+    "contrast": "sqrt",
+    "implementation": "src/recognition/preprocess.mjs"
+  },
+  "output": {
+    "name": "logits",
+    "type": "logits",
+    "classes": [
+      "cat",
+      "dog",
+      "rabbit",
+      "fish",
+      "bear",
+      "mouse",
+      "face",
+      "house"
+    ],
+    "catIndex": 0
+  },
+  "score": {
+    "rounding": "Math.round(p * 100)",
+    "thresholdExclusive": 50
+  },
+  "attribution": "Google Quick, Draw! Dataset, CC BY 4.0; 2 user drawings and 26 user-provided Internet references used for local adaptation, source license details retained in private provenance. TU-Berlin candidates excluded pending license verification.",
+  "validation": {
+    "source": "quickdraw-8class-64.metrics.json",
+    "testAccuracy": 0.8926050740764291,
+    "catTestAccuracy": 0.8797979797979798,
+    "catPassRateAt51": 0.8595959595959596,
+    "nonCatFalsePassRate": 0.0168764093984142,
+    "note": "Shared browser/training preprocessor; held-out QuickDraw IDs. Does not establish real-user accuracy or author-disjoint generalization."
+  }
+}

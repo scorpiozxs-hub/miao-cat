@@ -1,75 +1,82 @@
-# 摸凹猫 · 本地 H5 用户端
+# 摸凹猫 · 找猫挑战
 
-React + TypeScript + Vite。已实现需求文档的两个用户端模块：`/draw` 和 `/square`。
+画出自己的猫，再从50只动态猫中找到它。React + TypeScript + Vite，浏览器本地ONNX识别，腾讯云CloudBase保存作品与成绩。
 
-## 运行
+## 在另一台电脑继续开发
 
-需要 Node.js 20.19+ 或 22.12+。
+完整步骤见 [跨电脑恢复指南](docs/CONTINUE-DEVELOPMENT.md)。代码仓库已包含可直接使用的64px模型和权重；不需要先重新训练。
 
-```sh
-npm install
-npm run dev
-```
+需要Node.js 22.18+、Git。只有训练模型时才需要Python 3.12。
 
-打开终端显示的本地地址。构建与预览：
+~~~powershell
+git clone https://github.com/scorpiozxs-hub/miao-cat.git
+cd miao-cat
+npm ci
+npm ci --prefix server
+Copy-Item .env.example .env.local
+npm run check:model
+npm test
+npm run dev -- --port 8767
+~~~
 
-```sh
+打开 http://127.0.0.1:8767/draw 。初次复制环境示例后为绘画/本机练习；连接已有云环境的方法见恢复指南。macOS/Linux可用cp代替Copy-Item。
+
+## 当前规则
+
+- 只有最终画面的本地识别整数分超过50才允许提交；服务端不再次推理猫类别、不按云端猫分数否决提交。
+- 必填艺术家昵称，完成命名后上传。服务器检查身份、字段、模型版本、文件及内容安全；内容审核决定作品能否公开。
+- 正式找猫总计50个精灵，3秒倒数，找到本轮自己的猫后记录联网时间；排行展示前20。
+- 当前V4.1允许不足时重复使用合格干扰作品；目标唯一且相同像素哈希不得成为干扰项。
+- 当前V4.1每次新的命名提交产生独立playerId；按此身份保留最好成绩，不按昵称或设备合并榜位。
+- 广场固定一屏，无“最新作品”“我的猫咪”和下方作品流；结束后允许悬停/轻点查看猫名及艺术家。
+- 当前规则优先级：[已确认决策](docs/find-cat-v4.1-decisions.md) 高于历史策划。历史策划中“服务端重新评分”等内容已经作废。
+
+## 模型与训练资料
+
+模型版本quickdraw-8class-64-v2，预处理alpha-area-64-v2，输入float32 [1,1,64,64]。按实际透明笔迹包围盒裁剪、等比居中、4像素边距、区域覆盖平均与细线对比度增强。训练端和网页端调用同一个 [预处理模块](src/recognition/preprocess.mjs)。
+
+训练包括不同笔粗、轻度增粗/减细、旋转缩放；基础数据及手工筛选的全身猫，另用2张用户手绘及26张用户提供参考图继续训练。训练图的拟合分数不代表未见画作准确率；独立测试、限制及三档笔粗对比见 [模型升级报告](docs/model-upgrade-64.md)。
+
+较大的原始数据、训练分组、检查点和补充画作位于 [开发快照Release](https://github.com/scorpiozxs-hub/miao-cat/releases/tag/dev-snapshot-2026-10-28)，不放入Git历史。备份包提供SHA-256校验和安全恢复工具。
+
+- [训练说明](training/README.md)
+- [模型交接](docs/model-handoff.md)
+- [腾讯云配置与部署](docs/tencent-cloud-setup.md)
+- [版本验证记录](docs/verification-v4.md)
+- [素材来源记录](docs/REFERENCE-ASSETS.md)
+
+第三方训练数据、用户提供的互联网参考图和角色素材不因本仓库公开而自动取得额外使用许可。QuickDraw按CC BY 4.0署名，其余已知来源/待核验状态保存在相应清单；不要将本项目素材整体声明为MIT等许可。
+
+## 主要目录
+
+| 目录 | 用途 |
+| --- | --- |
+| src/v4 | 当前游戏入口、绘画、找猫舞台、成绩与云端接口 |
+| src/recognition | 训练与浏览器共享的64px预处理 |
+| src/art.ts / src/storage.ts | 共享绘画工具、透明导出与本地草稿 |
+| public/models | 现用64px模型、SHA-256 manifest、旧28px对照模型 |
+| public/mascot | 当前角色素材 |
+| server | CloudBase函数、权限/索引配置、维护与内容检查 |
+| training | 数据准备、训练、继续训练和个人样本导入 |
+| scripts | 校验、数据下载、快照恢复、云端工具 |
+| tests | 本地规则/服务端/预处理测试与浏览器验证 |
+
+src根目录的旧版Draw/Square等保留为历史实现；当前HTML入口为src/v4/main.tsx。相邻的Godot试验工程不属于当前游戏，不是运行此项目的依赖。
+
+## 检查与构建
+
+~~~powershell
+npm run check:model
+npm test
 npm run build
-npm run preview
-```
+# 另一个终端保持8767开发服务器运行后：
+npm run test:browser
+~~~
 
-`dist/` 是静态产物。服务器需将 `/draw`、`/square` 等路径回退到 `index.html`。
+浏览器测试依赖Playwright。Windows默认用已安装的Edge；其他系统先执行npx playwright install chromium。训练/图片验证工具需要恢复Release中的训练资料。
 
-## 已有用户流程
+## 云端实际状态
 
-- 画笔、8 色与自定义色、4 档粗细、透明擦除、撤销/重做、确认清空。
-- 鼠标/触控连续绘制；内部 800×800 坐标，导出裁切居中的 512×512 透明 PNG。
-- IndexedDB 自动保存笔画草稿；刷新/返回后恢复。
-- 完成面板、随机猫名、艺术家昵称、匿名创作、幂等本地发布。
-- 动态猫咪舞台，12 只明确标注的预置示例，作品卡片、搜索、详情、下载。
-- 我的作品、按作品数排序的本地艺术家排行、反馈记录、分页展示。
-- 分享链接可以在同一浏览器中定位本地作品；示例链接可以在其他访问者处打开。
-- 空状态、模型不可用、存储失败、离线提示、减少动画和静音。
-- 四阶段视觉反馈可通过“体验四阶段反馈”显式预览，演示分数不会写入作品。
+现有上海CloudBase环境ID和函数名见cloudbaserc.json（这些标识不是密码）。miao-api和miao-maintenance已同步64px模型版本。云端不做猫分类复核。真实内容审核策略、作品池与公网前端托管仍需按部署文档完成配置；pending作品不会被假装成公开作品。
 
-## 当前边界
-
-这是用户端本地版本。所有个人作品和反馈仅保存在当前浏览器中；没有跨设备公共广场、服务器身份、内容审核或真实网络上传。不存在伪造的上传成功/审核成功提示。
-
-没有提供或训练猫咪分类模型。默认识别显示 `--` 与“实时识别暂不可用”，不按笔画数或随机数伪造评分。完整的 ONNX Worker 接入和实时调度已预留。
-
-原需求里的 6 张 Notion 图片目前只能读取内部资源引用，没有取得图片文件。Notion 原文未被修改。当前知壹使用明确记录在源码中的手绘 SVG 占位，可通过 `VITE_MASCOT_URL` 换成导出的原素材。界面按文档文字描述实现，并未声称像素级复刻图示。
-
-## 接入真实识别
-
-复制 `.env.example` 为 `.env.local`，填入训练好的模型地址。模型应作为 `public/models/cat.onnx` 放入项目（该目录自行创建），或使用允许 CORS 的 HTTPS 文件地址。
-
-当前适配器合同：
-
-- 输入 `[1, 1, 28, 28]` float32；大小可用 `VITE_MODEL_SIZE` 调整。
-- 裁切非透明笔迹的包围盒，等比例居中并留 2 像素边距。
-- 使用笔迹 alpha 作为灰度：黑背景、白笔迹、0–1；颜色不影响识别。
-- 输出第一个 tensor 为类别概率或 logits；logits 自动 softmax。
-- 用 `VITE_CAT_CLASS_INDEX` 指定猫类别索引，默认 0。
-- 训练必须使用同一预处理，若训练合同不同，应一起修改 `src/art.ts` 和 `src/inference.worker.ts`。
-- 当前采用 WASM Worker 单线程兼容路径；没有启用 WebGPU。加载超时 20 秒，单次推理超时 10 秒，失败诚实降级。
-- 同时最多一个推理，待处理请求只保留最新画布；旧版本结果丢弃；最近三次有效预测以 1:2:3 权重平滑。
-
-模型文件与推理 runtime 体积不同。当前 ONNX runtime 的 WASM 文件约 28 MB（gzip 约 6.7 MB），仅配置模型后使用；无模型时页面不会创建 Worker 或请求该文件。需要上线真实识别时，再优化 runtime 构建/缓存并做低端手机实测。
-
-## 后端接入位置
-
-`src/storage.ts` 是目前的本地存储服务。下一步可替换成 CloudBase / HTTP API；`Artwork` 字段在 `src/types.ts`。服务端应生成可信用户身份、校验文件、执行审核、以请求 ID 幂等写入，并只对 `published` 作品提供公共列表。
-
-本地用户 ID 仅用于归属与体验，不能作为服务器鉴权凭据。客户端评分不应作为可信排名或权限依据。清除浏览器数据会失去本地作品，用户可以先下载图片。
-
-## 源码导航
-
-- `src/Draw.tsx`：绘画、草稿、工具、完成与发布。
-- `src/useRecognition.ts`、`src/inference.worker.ts`：真实推理接入与调度。
-- `src/art.ts`：笔迹渲染、透明导出、预处理、示例猫和阶段规则。
-- `src/Square.tsx`、`src/Stage.tsx`：广场、舞台动画、作品详情与排行。
-- `src/storage.ts`：IndexedDB 与游客资料。
-- `src/styles.css`：桌面与移动端界面。
-
-原始需求：https://app.notion.com/p/400045159e1880bf9093de53fe0eb675
+本仓库不包含.env.local、GitHub/腾讯云登录凭据、数据库/对象存储私有备份、node_modules或本机Python虚拟环境。换电脑后重新安装依赖、登录云账号。不要提交永久密钥。

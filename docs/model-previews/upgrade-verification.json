@@ -1,0 +1,22 @@
+{
+  "modelVersion": "quickdraw-8class-64-v2",
+  "preprocessVersion": "alpha-area-64-v2",
+  "training": "12 base epochs + 6 user adaptation epochs; selected adaptation epoch 3",
+  "suppliedDrawings": {
+    "personal": 2,
+    "internet": 26,
+    "allUsedInTraining": true,
+    "originals": "D:/all_in_ai/摸凹猫/data/user-cats-20261028/originals",
+    "manifest": "D:/all_in_ai/摸凹猫/data/user-cats-20261028/manifest.json"
+  },
+  "checks": {
+    "automatedTests": 14,
+    "productionBuild": "passed",
+    "browserWorkerSmoke": "passed",
+    "actualH5WidthComparisonCases": 480,
+    "cropPositionAndScale": "passed",
+    "originalIdSplitOverlap": 0
+  },
+  "cloudDeployment": "Existing API and maintenance functions updated and verified; see cloud-model64-deployment.json. Business data and public frontend hosting unchanged.",
+  "report": "docs/model-upgrade-64.md"
+}

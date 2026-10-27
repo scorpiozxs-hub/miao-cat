@@ -1,0 +1,1272 @@
+
+pytorch
+2.14.1+cpu:´Œ
+Ì
+image
+features.0.weight
+features.0.biasgetitemnode_Conv_105"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ JÛ
+	namespaceÍ: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training: aten._native_batch_norm_legit_no_training.defaultJ:
+!pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ¿
+pkg.torch.onnx.class_hierarchyœ['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J°
+pkg.torch.onnx.fx_node•%_native_batch_norm_legit_no_training : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d, %p_features_1_weight, %p_features_1_bias, %b_features_1_running_mean, %b_features_1_running_var, 0.1, 1e-05), kwargs = {})Jd
+pkg.torch.onnx.name_scopesF['', 'features', 'features.1', '_native_batch_norm_legit_no_training']J–
+pkg.torch.onnx.stack_trace÷File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ğ
+getitemrelu	node_relu"ReluJ•
+	namespace‡: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.2: torch.nn.modules.activation.ReLU/relu: aten.relu.defaultJ˜
+pkg.torch.onnx.class_hierarchyv['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J„
+pkg.torch.onnx.fx_nodej%relu : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem,), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'features', 'features.2', 'relu']J­
+pkg.torch.onnx.stack_traceFile "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+Õ
+relu
+features.3.weight
+features.3.bias	getitem_3node_Conv_106"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ Jİ
+	namespaceÏ: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_1: aten._native_batch_norm_legit_no_training.defaultJ:
+!pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ¿
+pkg.torch.onnx.class_hierarchyœ['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J´
+pkg.torch.onnx.fx_node™%_native_batch_norm_legit_no_training_1 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_1, %p_features_4_weight, %p_features_4_bias, %b_features_4_running_mean, %b_features_4_running_var, 0.1, 1e-05), kwargs = {})Jf
+pkg.torch.onnx.name_scopesH['', 'features', 'features.4', '_native_batch_norm_legit_no_training_1']J–
+pkg.torch.onnx.stack_trace÷File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ş
+	getitem_3relu_1node_relu_1"ReluJ—
+	namespace‰: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.5: torch.nn.modules.activation.ReLU/relu_1: aten.relu.defaultJ˜
+pkg.torch.onnx.class_hierarchyv['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jˆ
+pkg.torch.onnx.fx_noden%relu_1 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_3,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.5', 'relu_1']J­
+pkg.torch.onnx.stack_traceFile "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+×
+relu_1
+features.6.weight
+features.6.bias	getitem_6node_Conv_107"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ Jİ
+	namespaceÏ: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.7: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_2: aten._native_batch_norm_legit_no_training.defaultJ:
+!pkg.onnxscript.rewriter.rule_nameFuseBatchNormIntoConvJ¿
+pkg.torch.onnx.class_hierarchyœ['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J´
+pkg.torch.onnx.fx_node™%_native_batch_norm_legit_no_training_2 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_2, %p_features_7_weight, %p_features_7_bias, %b_features_7_running_mean, %b_features_7_running_var, 0.1, 1e-05), kwargs = {})Jf
+pkg.torch.onnx.name_scopesH['', 'features', 'features.7', '_native_batch_norm_legit_no_training_2']J–
+pkg.torch.onnx.stack_trace÷File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ş
+	getitem_6relu_2node_relu_2"ReluJ—
+	namespace‰: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.8: torch.nn.modules.activation.ReLU/relu_2: aten.relu.defaultJ˜
+pkg.torch.onnx.class_hierarchyv['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jˆ
+pkg.torch.onnx.fx_noden%relu_2 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_6,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.8', 'relu_2']J­
+pkg.torch.onnx.stack_traceFile "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+»	
+relu_2
+features.9.weight
+features.9.biasconv2d_3node_conv2d_3"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ J—
+	namespace‰: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.9: torch.nn.modules.conv.Conv2d/conv2d_3: aten.conv2d.defaultJ–
+pkg.torch.onnx.class_hierarchyt['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']JÃ
+pkg.torch.onnx.fx_node¨%conv2d_3 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_2, %p_features_9_weight, %p_features_9_bias, [1, 1], [1, 1]), kwargs = {})JH
+pkg.torch.onnx.name_scopes*['', 'features', 'features.9', 'conv2d_3']Jµ
+pkg.torch.onnx.stack_trace–File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\conv.py", line 565, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+Ş
+conv2d_3relu_3node_relu_3"ReluJ˜
+	namespaceŠ: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.10: torch.nn.modules.activation.ReLU/relu_3: aten.relu.defaultJ˜
+pkg.torch.onnx.class_hierarchyv['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J‡
+pkg.torch.onnx.fx_nodem%relu_3 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_3,), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.10', 'relu_3']J­
+pkg.torch.onnx.stack_traceFile "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+»
+relu_3val_67node_Transpose_67"	Transpose*
+perm@@@ @ J¡
+	namespace“: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/index: aten.index.TensorJ£
+pkg.torch.onnx.class_hierarchy€['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.index.Tensor']J¬
+pkg.torch.onnx.fx_node‘%index : [num_users=1] = call_function[target=torch.ops.aten.index.Tensor](args = (%relu_3, [None, None, %unsqueeze_3, %minimum_1]), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.11', 'index']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+Á
+val_67
+val_74val_75node_GatherND_75"GatherND*
+
+batch_dims  J¡
+	namespace“: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/index: aten.index.TensorJ£
+pkg.torch.onnx.class_hierarchy€['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.index.Tensor']J¬
+pkg.torch.onnx.fx_node‘%index : [num_users=1] = call_function[target=torch.ops.aten.index.Tensor](args = (%relu_3, [None, None, %unsqueeze_3, %minimum_1]), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.11', 'index']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+·
+val_75index
+node_index"	Transpose*
+perm@@@ @@@ J¡
+	namespace“: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/index: aten.index.TensorJ£
+pkg.torch.onnx.class_hierarchy€['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.index.Tensor']J¬
+pkg.torch.onnx.fx_node‘%index : [num_users=1] = call_function[target=torch.ops.aten.index.Tensor](args = (%relu_3, [None, None, %unsqueeze_3, %minimum_1]), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.11', 'index']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+Ê
+unsqueeze_6
+val_77
+indexmasked_fillnode_masked_fill"WhereJ­
+	namespaceŸ: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/masked_fill: aten.masked_fill.ScalarJ©
+pkg.torch.onnx.class_hierarchy†['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.masked_fill.Scalar']J¢
+pkg.torch.onnx.fx_node‡%masked_fill : [num_users=1] = call_function[target=torch.ops.aten.masked_fill.Scalar](args = (%index, %unsqueeze_6, 0.0), kwargs = {})JL
+pkg.torch.onnx.name_scopes.['', 'features', 'features.11', 'masked_fill']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+Ó
+ge_1
+val_77
+masked_fillmasked_fill_1node_masked_fill_1"WhereJ¯
+	namespace¡: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/masked_fill_1: aten.masked_fill.ScalarJ©
+pkg.torch.onnx.class_hierarchy†['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.masked_fill.Scalar']J¤
+pkg.torch.onnx.fx_node‰%masked_fill_1 : [num_users=16] = call_function[target=torch.ops.aten.masked_fill.Scalar](args = (%masked_fill, %ge_1, 0.0), kwargs = {})JN
+pkg.torch.onnx.name_scopes0['', 'features', 'features.11', 'masked_fill_1']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+›
+masked_fill_1
+val_22selectnode_select"Gather*
+axis J 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodeu%select : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%masked_fill_1, 3, 0), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'select']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+—
+select
+val_22select_1node_select_1"Gather*
+axis J¢
+	namespace”: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_1: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']JŠ
+pkg.torch.onnx.fx_nodep%select_1 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select, 4, 0), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'features', 'features.11', 'select_1']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+™
+select
+val_24select_3node_select_3"Gather*
+axis J¢
+	namespace”: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_3: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']JŒ
+pkg.torch.onnx.fx_noder%select_3 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_2, 4, 1), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'features', 'features.11', 'select_3']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ƒ
+select_1
+select_3add_6
+node_add_6"AddJŸ
+	namespace‘: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_6: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_6 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%select_1, %select_3), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.11', 'add_6']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+™
+select
+val_79select_5node_select_5"Gather*
+axis J¢
+	namespace”: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_5: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']JŒ
+pkg.torch.onnx.fx_noder%select_5 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_4, 4, 2), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'features', 'features.11', 'select_5']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ı
+add_6
+select_5add_7
+node_add_7"AddJŸ
+	namespace‘: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_7: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J‹
+pkg.torch.onnx.fx_nodeq%add_7 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_6, %select_5), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.11', 'add_7']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+™
+select
+val_20select_7node_select_7"Gather*
+axis J¢
+	namespace”: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_7: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']JŒ
+pkg.torch.onnx.fx_noder%select_7 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_6, 4, 3), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'features', 'features.11', 'select_7']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ı
+add_7
+select_7add_8
+node_add_8"AddJŸ
+	namespace‘: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_8: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J‹
+pkg.torch.onnx.fx_nodeq%add_8 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_7, %select_7), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.11', 'add_8']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¥
+masked_fill_1
+val_24select_8node_select_8"Gather*
+axis J¢
+	namespace”: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_8: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J‘
+pkg.torch.onnx.fx_nodew%select_8 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%masked_fill_1, 3, 1), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'features', 'features.11', 'select_8']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+›
+select_8
+val_22select_9node_select_9"Gather*
+axis J¢
+	namespace”: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_9: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']JŒ
+pkg.torch.onnx.fx_noder%select_9 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_8, 4, 0), kwargs = {})JI
+pkg.torch.onnx.name_scopes+['', 'features', 'features.11', 'select_9']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ı
+add_8
+select_9add_9
+node_add_9"AddJŸ
+	namespace‘: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_9: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J‹
+pkg.torch.onnx.fx_nodeq%add_9 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_8, %select_9), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.11', 'add_9']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¡
+select_8
+val_24	select_11node_select_11"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_11: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_11 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_10, 4, 1), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_11']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+„
+add_9
+	select_11add_10node_add_10"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_10: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodes%add_10 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_9, %select_11), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_10']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¡
+select_8
+val_79	select_13node_select_13"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_13: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_13 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_12, 4, 2), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_13']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_10
+	select_13add_11node_add_11"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_11: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_11 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_10, %select_13), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_11']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¡
+select_8
+val_20	select_15node_select_15"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_15: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_15 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_14, 4, 3), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_15']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_11
+	select_15add_12node_add_12"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_12: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_12 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_11, %select_15), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_12']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ª
+masked_fill_1
+val_79	select_16node_select_16"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_16: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J’
+pkg.torch.onnx.fx_nodex%select_16 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%masked_fill_1, 3, 2), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_16']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¢
+	select_16
+val_22	select_17node_select_17"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_17: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_17 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_16, 4, 0), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_17']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_12
+	select_17add_13node_add_13"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_13: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_13 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_12, %select_17), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_13']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¢
+	select_16
+val_24	select_19node_select_19"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_19: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_19 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_18, 4, 1), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_19']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_13
+	select_19add_14node_add_14"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_14: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_14 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_13, %select_19), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_14']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¢
+	select_16
+val_79	select_21node_select_21"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_21: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_21 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_20, 4, 2), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_21']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_14
+	select_21add_15node_add_15"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_15: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_15 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_14, %select_21), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_15']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¢
+	select_16
+val_20	select_23node_select_23"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_23: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_23 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_22, 4, 3), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_23']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_15
+	select_23add_16node_add_16"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_16: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_16 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_15, %select_23), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_16']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ª
+masked_fill_1
+val_20	select_24node_select_24"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_24: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J’
+pkg.torch.onnx.fx_nodex%select_24 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%masked_fill_1, 3, 3), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_24']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¢
+	select_24
+val_22	select_25node_select_25"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_25: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_25 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_24, 4, 0), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_25']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_16
+	select_25add_17node_add_17"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_17: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_17 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_16, %select_25), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_17']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¢
+	select_24
+val_24	select_27node_select_27"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_27: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_27 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_26, 4, 1), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_27']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_17
+	select_27add_18node_add_18"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_18: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_18 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_17, %select_27), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_18']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¢
+	select_24
+val_79	select_29node_select_29"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_29: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_29 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_28, 4, 2), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_29']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_18
+	select_29add_19node_add_19"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_19: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_19 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_18, %select_29), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_19']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¢
+	select_24
+val_20	select_31node_select_31"Gather*
+axis J£
+	namespace•: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/select_31: aten.select.intJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.select.int']J
+pkg.torch.onnx.fx_nodet%select_31 : [num_users=1] = call_function[target=torch.ops.aten.select.int](args = (%select_30, 4, 3), kwargs = {})JJ
+pkg.torch.onnx.name_scopes,['', 'features', 'features.11', 'select_31']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+†
+add_19
+	select_31add_20node_add_20"AddJ 
+	namespace’: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/add_20: aten.add.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.add.Tensor']J
+pkg.torch.onnx.fx_nodet%add_20 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%add_19, %select_31), kwargs = {})JG
+pkg.torch.onnx.name_scopes)['', 'features', 'features.11', 'add_20']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¨
+add_20
+convert_element_type_defaultdiv_4
+node_div_4"DivJŸ
+	namespace‘: train64.Sketch64/features: torch.nn.modules.container.Sequential/features.11: torch.nn.modules.pooling.AdaptiveAvgPool2d/div_4: aten.div.TensorJ 
+pkg.torch.onnx.class_hierarchy~['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.div.Tensor']J¡
+pkg.torch.onnx.fx_node†%div_4 : [num_users=1] = call_function[target=torch.ops.aten.div.Tensor](args = (%add_20, %convert_element_type_default), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.11', 'div_4']J¶
+pkg.torch.onnx.stack_trace—File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+å
+div_4
+val_83view	node_view"Reshape*
+	allowzero JŒ
+	namespace: train64.Sketch64/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.flatten.Flatten/view: aten.view.defaultJ˜
+pkg.torch.onnx.class_hierarchyv['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.flatten.Flatten', 'aten.view.default']J‹
+pkg.torch.onnx.fx_nodeq%view : [num_users=1] = call_function[target=torch.ops.aten.view.default](args = (%div_4, [1, 576]), kwargs = {})J<
+pkg.torch.onnx.name_scopes['', 'head', 'head.0', 'view']J±
+pkg.torch.onnx.stack_trace’File "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\flatten.py", line 55, in forward
+    return input.flatten(self.start_dim, self.end_dim)
+Ã
+view
+head.1.weight
+head.1.biaslinearnode_linear"Gemm*
+transA  *
+transB *
+alpha  €? *
+beta  €? J
+	namespace: train64.Sketch64/head: torch.nn.modules.container.Sequential/head.1: torch.nn.modules.linear.Linear/linear: aten.linear.defaultJ˜
+pkg.torch.onnx.class_hierarchyv['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.linear.Linear', 'aten.linear.default']J§
+pkg.torch.onnx.fx_nodeŒ%linear : [num_users=1] = call_function[target=torch.ops.aten.linear.default](args = (%view, %p_head_1_weight, %p_head_1_bias), kwargs = {})J>
+pkg.torch.onnx.name_scopes ['', 'head', 'head.1', 'linear']J­
+pkg.torch.onnx.stack_traceFile "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+È
+linearrelu_4node_relu_4"ReluJ
+	namespace: train64.Sketch64/head: torch.nn.modules.container.Sequential/head.2: torch.nn.modules.activation.ReLU/relu_4: aten.relu.defaultJ˜
+pkg.torch.onnx.class_hierarchyv['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J…
+pkg.torch.onnx.fx_nodek%relu_4 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%linear,), kwargs = {})J>
+pkg.torch.onnx.name_scopes ['', 'head', 'head.2', 'relu_4']J­
+pkg.torch.onnx.stack_traceFile "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+Ï
+relu_4
+head.4.weight
+head.4.biaslogitsnode_linear_1"Gemm*
+transA  *
+transB *
+alpha  €? *
+beta  €? J‘
+	namespaceƒ: train64.Sketch64/head: torch.nn.modules.container.Sequential/head.4: torch.nn.modules.linear.Linear/linear_1: aten.linear.defaultJ˜
+pkg.torch.onnx.class_hierarchyv['train64.Sketch64', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.linear.Linear', 'aten.linear.default']J«
+pkg.torch.onnx.fx_node%linear_1 : [num_users=1] = call_function[target=torch.ops.aten.linear.default](args = (%relu_4, %p_head_4_weight, %p_head_4_bias), kwargs = {})J@
+pkg.torch.onnx.name_scopes"['', 'head', 'head.4', 'linear_1']J­
+pkg.torch.onnx.stack_traceFile "D:\ai\æ‘¸å‡¹çŒ«\training\train64.py", line 18, in forward
+    def forward(self,x):return self.head(self.features(x))
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "D:\ai\æ‘¸å‡¹çŒ«\.venv\Lib\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+main_graph*gBfeatures.0.weightj)
+locationquickdraw-8class-64.onnx.dataj
+offset0j
+length1600p*WBfeatures.0.biasJ@­-‘¾ä~¼$ôà¼Y=›=€ŸÄ;–_È>KPí¼&‹Ñ=¦ğõ>'pä>Æë‘=²¶™<Xş‰¾cØ¼jÄ>‚«Ú<*k Bfeatures.3.weightj)
+locationquickdraw-8class-64.onnx.dataj
+offset1600j
+length18432p*˜ Bfeatures.3.biasJ€­ E?ş6?0?ê<?}˜?­Á]?lCm?¨ª?Æ÷>JX#?íÜƒ?%9?õ.M?ÍV?ÙÕ½Öt÷>˜®"?‚Î˜>/… @ï?Zf[½' ?5}<?Ó^
+?‘Š1?=0°>¬Àñ>ĞÌo?¥­@de°½Ò3Z?”mœ?*l@ Bfeatures.6.weightj)
+locationquickdraw-8class-64.onnx.dataj
+offset20032j
+length73728p*˜@Bfeatures.6.biasJ€O @åTâ?K}?k³>!Àäl@Ÿªã?¨Tô>&#@Kª@ü'@¾Åö?D¤@yG=?%HÕ¾½3@^,¾¼ùõ¿O8¿ÖŸ‚?óØ
+?»­@“b?R{Š?œÜs?2š>¥;@Ö º=Åú”¾£µŸ¿¦â»?•Íô?%_@Š7@(Êo@`Ãå¾]j*?Õ¡±?MªL?²¨@M\8@U½?¬!£?±"?o˜Æ>Ly?¬g“¿1?N@ı}õ?#ì‘?ô}ÀKpÒ?{Ğä>É?äA7?Ğ—Í¾bI{?]Öî½ªãk½Ê@·i?{¿ä1ú>¤Ë	¾*m@@Bfeatures.9.weightj)
+locationquickdraw-8class-64.onnx.dataj
+offset93760j
+length147456p*˜@Bfeatures.9.biasJ€á>Ã»eÙ<_T¼˜G=¸¼"5Ÿ½.Ğr¼EOÕ<ªĞ°½}›<:È±;p„=ı›Ì<dh=w^û¼-‡¼‘”‰½u ;ß‡Š;r,¼E|¥82”)¼˜òÎ<Ò˜;o±Y<c~½DšQ¼ŸT½›£<2]â½4&š¼‹Ü»J´;nBÖ».ˆÁ»ƒ8=“À˜¼H½ª»%½{ÑÜº2?=˜"î;¦a½:N¿½“­Z½™üÙ½yg½g1=<sb#<u¼ÉÑ)½Í2X=¢İ‰»ÅZ‘½Fx;Ö¶“<°Ø½È6½’™^=«î½#ùM=úÀ%=‹½0Í²¼*g`ÀBhead.1.weightj)
+locationquickdraw-8class-64.onnx.dataj
+offset241216j
+length221184p*_`Bhead.1.biasj)
+locationquickdraw-8class-64.onnx.dataj
+offset462400j
+length384p*d`Bhead.4.weightj)
+locationquickdraw-8class-64.onnx.dataj
+offset462784j
+length3072p*3Bhead.4.biasJ iî=‡á,=*´—½g²¹»­©=—oè=l@Î½I÷@¾*cBval_74j)
+locationquickdraw-8class-64.onnx.dataj
+offset465856j
+length2304p*%	Bunsqueeze_6J          *Bval_77J    *	Bge_1J          *JBconvert_element_type_defaultJ$  A  @A  A  @A  €A  @A  A  @A  A*Bval_83J       @      *Bval_20J       *Bval_22J        *Bval_24J       *Bval_79J       ZÅ
+image
+
+
+
+@
+@"=
+/pkg.torch.export.graph_signature.InputSpec.kind
+USER_INPUT"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"&
+!pkg.torch.onnx.original_node_namexbˆ
+logits
+
+
+"?
+0pkg.torch.export.graph_signature.OutputSpec.kindUSER_OUTPUT"-
+!pkg.torch.onnx.original_node_namelinear_1j+
+features.0.weight
+
+
+
+
+j
+features.0.bias
+
+
+j+
+features.3.weight
+
+ 
+
+
+j
+features.3.bias
+
+
+ j+
+features.6.weight
+
+@
+ 
+
+j
+features.6.bias
+
+
+@jâ
+features.9.weight
+
+@
+@
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"8
+!pkg.torch.onnx.original_node_namep_features_9_weightjÒ
+features.9.bias
+
+
+@"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"6
+!pkg.torch.onnx.original_node_namep_features_9_biasjÓ
+head.1.weight
+	
+`
+À"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"4
+!pkg.torch.onnx.original_node_namep_head_1_weightjÊ
+head.1.bias
+
+
+`"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"2
+!pkg.torch.onnx.original_node_namep_head_1_biasjÒ
+head.4.weight
+
+
+`"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"4
+!pkg.torch.onnx.original_node_namep_head_4_weightjÊ
+head.4.bias
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"2
+!pkg.torch.onnx.original_node_namep_head_4_biasjª
+val_74
+
+
+
+
+
+"ƒ
+$pkg.onnxscript.optimizer.folded_fromÚ['add', 'add_3', 'arange', 'arange_1', 'arange_2', 'arange_3', 'div', 'div_2', 'minimum', 'minimum_1', 'mul', 'mul_2', 'scalar_tensor', 'scalar_tensor_1', 'unsqueeze', 'unsqueeze_1', 'unsqueeze_2', 'unsqueeze_3', 'val_20', 'val_21', 'val_22', 'val_23', 'val_24', 'val_25', 'val_26', 'val_27', 'val_28', 'val_29', 'val_30', 'val_31', 'val_32', 'val_33', 'val_34', 'val_35', 'val_36', 'val_37', 'val_38', 'val_39', 'val_47', 'val_48', 'val_49', 'val_50', 'val_51', 'val_52', 'val_53', 'val_54', 'val_55', 'val_56', 'val_57', 'val_58', 'val_59', 'val_68', 'val_69', 'val_70', 'val_71', 'val_72', 'val_73']jÑ
+unsqueeze_6
+	
+
+
+
+"©
+$pkg.onnxscript.optimizer.folded_from€['add_1', 'add_2', 'arange', 'arange_1', 'div', 'div_1', 'ge', 'mul', 'mul_1', 'sub', 'sub_1', 'unsqueeze_4', 'unsqueeze_5', 'val_20', 'val_21', 'val_22', 'val_23', 'val_24', 'val_25', 'val_26', 'val_27', 'val_28', 'val_29', 'val_30', 'val_31', 'val_32', 'val_33', 'val_34', 'val_35', 'val_36', 'val_37', 'val_38', 'val_40', 'val_41', 'val_42', 'val_43', 'val_44', 'val_45', 'val_46']jD
+val_77
+ "2
+$pkg.onnxscript.optimizer.folded_from
+['val_76']jµ
+ge_1
+	
+
+"œ
+$pkg.onnxscript.optimizer.folded_fromó['add_4', 'add_5', 'arange_2', 'arange_3', 'div_2', 'div_3', 'mul_2', 'mul_3', 'sub_2', 'sub_3', 'unsqueeze_8', 'val_20', 'val_22', 'val_24', 'val_26', 'val_34', 'val_38', 'val_47', 'val_48', 'val_49', 'val_50', 'val_51', 'val_52', 'val_53', 'val_54', 'val_55', 'val_56', 'val_57', 'val_58', 'val_59', 'val_60', 'val_61', 'val_62', 'val_63', 'val_64', 'val_65', 'val_66']j˜
+convert_element_type_default
+
+
+"ç
+$pkg.onnxscript.optimizer.folded_from¾['add_1', 'add_2', 'add_4', 'add_5', 'arange', 'arange_2', 'div', 'div_1', 'div_2', 'div_3', 'mul', 'mul_1', 'mul_2', 'mul_3', 'mul_4', 'sub', 'sub_1', 'sub_2', 'sub_3', 'unsqueeze_7', 'val_20', 'val_21', 'val_22', 'val_23', 'val_24', 'val_25', 'val_26', 'val_27', 'val_28', 'val_29', 'val_30', 'val_31', 'val_32', 'val_33', 'val_38', 'val_40', 'val_41', 'val_42', 'val_43', 'val_44', 'val_45', 'val_46', 'val_47', 'val_48', 'val_49', 'val_50', 'val_51', 'val_52', 'val_53', 'val_54', 'val_55', 'val_56', 'val_60', 'val_61', 'val_62', 'val_63', 'val_64', 'val_65', 'val_66']jR
+val_83
+
+
+"<
+$pkg.onnxscript.optimizer.folded_from['val_81', 'val_82']j
+val_20
+ j
+val_22
+ j
+val_24
+ j
+val_79
+ j!
+getitem
+
+
+
+ 
+ j
+relu
+
+
+
+ 
+ j#
+	getitem_3
+
+
+ 
+
+j 
+relu_1
+
+
+ 
+
+j#
+	getitem_6
+
+
+@
+
+j 
+relu_2
+
+
+@
+
+j"
+conv2d_3
+
+
+@
+
+j 
+relu_3
+
+
+@
+
+j 
+val_67
+
+
+
+
+@j(
+val_75
+
+
+
+
+
+
+@j'
+index
+
+
+@
+
+
+
+j-
+masked_fill
+
+
+@
+
+
+
+j/
+masked_fill_1
+
+
+@
+
+
+
+j$
+select
+
+
+@
+
+
+j"
+select_1
+
+
+@
+
+j"
+select_3
+
+
+@
+
+j
+add_6
+
+
+@
+
+j"
+select_5
+
+
+@
+
+j
+add_7
+
+
+@
+
+j"
+select_7
+
+
+@
+
+j
+add_8
+
+
+@
+
+j&
+select_8
+
+
+@
+
+
+j"
+select_9
+
+
+@
+
+j
+add_9
+
+
+@
+
+j#
+	select_11
+
+
+@
+
+j 
+add_10
+
+
+@
+
+j#
+	select_13
+
+
+@
+
+j 
+add_11
+
+
+@
+
+j#
+	select_15
+
+
+@
+
+j 
+add_12
+
+
+@
+
+j'
+	select_16
+
+
+@
+
+
+j#
+	select_17
+
+
+@
+
+j 
+add_13
+
+
+@
+
+j#
+	select_19
+
+
+@
+
+j 
+add_14
+
+
+@
+
+j#
+	select_21
+
+
+@
+
+j 
+add_15
+
+
+@
+
+j#
+	select_23
+
+
+@
+
+j 
+add_16
+
+
+@
+
+j'
+	select_24
+
+
+@
+
+
+j#
+	select_25
+
+
+@
+
+j 
+add_17
+
+
+@
+
+j#
+	select_27
+
+
+@
+
+j 
+add_18
+
+
+@
+
+j#
+	select_29
+
+
+@
+
+j 
+add_19
+
+
+@
+
+j#
+	select_31
+
+
+@
+
+j 
+add_20
+
+
+@
+
+j
+div_4
+
+
+@
+
+j
+view
+	
+
+Àj
+linear
+
+
+`j
+relu_4
+
+
+`‚Í
+0pkg.torch.export.ExportedProgram.graph_signature˜
+# inputs
+p_features_0_weight: PARAMETER target='features.0.weight'
+p_features_0_bias: PARAMETER target='features.0.bias'
+p_features_1_weight: PARAMETER target='features.1.weight'
+p_features_1_bias: PARAMETER target='features.1.bias'
+p_features_3_weight: PARAMETER target='features.3.weight'
+p_features_3_bias: PARAMETER target='features.3.bias'
+p_features_4_weight: PARAMETER target='features.4.weight'
+p_features_4_bias: PARAMETER target='features.4.bias'
+p_features_6_weight: PARAMETER target='features.6.weight'
+p_features_6_bias: PARAMETER target='features.6.bias'
+p_features_7_weight: PARAMETER target='features.7.weight'
+p_features_7_bias: PARAMETER target='features.7.bias'
+p_features_9_weight: PARAMETER target='features.9.weight'
+p_features_9_bias: PARAMETER target='features.9.bias'
+p_head_1_weight: PARAMETER target='head.1.weight'
+p_head_1_bias: PARAMETER target='head.1.bias'
+p_head_4_weight: PARAMETER target='head.4.weight'
+p_head_4_bias: PARAMETER target='head.4.bias'
+b_features_1_running_mean: BUFFER target='features.1.running_mean' persistent=True
+b_features_1_running_var: BUFFER target='features.1.running_var' persistent=True
+b_features_1_num_batches_tracked: BUFFER target='features.1.num_batches_tracked' persistent=True
+b_features_4_running_mean: BUFFER target='features.4.running_mean' persistent=True
+b_features_4_running_var: BUFFER target='features.4.running_var' persistent=True
+b_features_4_num_batches_tracked: BUFFER target='features.4.num_batches_tracked' persistent=True
+b_features_7_running_mean: BUFFER target='features.7.running_mean' persistent=True
+b_features_7_running_var: BUFFER target='features.7.running_var' persistent=True
+b_features_7_num_batches_tracked: BUFFER target='features.7.num_batches_tracked' persistent=True
+x: USER_INPUT
+
+# outputs
+linear_1: USER_OUTPUT
+‚8
+2pkg.torch.export.ExportedProgram.range_constraints{}B
+ 

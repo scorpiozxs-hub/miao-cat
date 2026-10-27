@@ -1,0 +1,14 @@
+{
+ "collections":["users","artworks","upload_requests","game_sessions","game_clicks","leaderboard_best","reports","rate_limits"],
+ "indexes":{
+  "artworks":[{"status":1,"source":1,"randomKey":1},{"status":1,"randomKey":1},{"status":1,"createdAt":-1},{"status":1,"updatedAt":1},{"ownerId":1,"createdAt":-1},{"imageHash":1}],
+  "game_sessions":[{"ownerId":1,"status":1,"preparedAt":-1},{"status":1,"expiresAt":1}],
+  "game_clicks":[{"sessionId":1,"receivedAt":1}],
+  "leaderboard_best":[{"rulesVersion":1,"status":1,"bestElapsedMs":1,"achievedAt":1,"userId":1}],
+  "reports":[{"status":1,"createdAt":-1},{"artworkId":1,"reporterId":1,"status":1}],
+  "upload_requests":[{"status":1,"expiresAt":1}]
+ },
+ "databaseClientRule":{"read":false,"write":false},
+ "storageClientRule":{"read":false,"write":false},
+ "storagePolicy":"All client SDK reads and writes are denied. upload.put verifies the trusted authUid, uploadId, expiry, byte size and SHA-256 before writing only the server-generated incoming path. Published resources are served through short signed URLs."
+}

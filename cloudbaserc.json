@@ -1,0 +1,31 @@
+{
+  "envId": "miao-cat-d1gst3eu0a8525432",
+  "region": "ap-shanghai",
+  "functionRoot": ".cloud-deploy",
+  "functions": [
+    {
+      "name": "miao-api",
+      "runtime": "Nodejs20.19",
+      "handler": "index.main",
+      "timeout": 3,
+      "memorySize": 256,
+      "installDependency": false,
+      "envVariables": {
+        "TCB_ENV": "miao-cat-d1gst3eu0a8525432",
+        "MODEL_VERSION": "quickdraw-8class-64-v2"
+      }
+    },
+    {
+      "name": "miao-maintenance",
+      "runtime": "Nodejs20.19",
+      "handler": "index.main",
+      "timeout": 3,
+      "memorySize": 256,
+      "installDependency": false,
+      "envVariables": {
+        "TCB_ENV": "miao-cat-d1gst3eu0a8525432",
+        "MODEL_VERSION": "quickdraw-8class-64-v2"
+      }
+    }
+  ]
+}

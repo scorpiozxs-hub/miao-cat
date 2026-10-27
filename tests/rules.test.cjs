@@ -1,0 +1,4 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');
+const {scoreOf,maySubmit,stageOf}=require('../src/v4/scoring.ts');const {alphaHit}=require('../src/v4/motion.ts');
+test('display rounding defines threshold; feedback boundaries and null are exact',()=>{assert.equal(scoreOf(.504),50);assert.equal(scoreOf(.506),51);assert(!maySubmit(scoreOf(.504)));assert(maySubmit(scoreOf(.506)));for(const v of [null,NaN,-.1,1.1])assert.equal(scoreOf(v),null);assert.deepEqual([25,26,50,51,75,76,null].map(stageOf),[0,1,1,2,2,3,2]);});
+test('alpha hit uses inverse rotation/scale and never accepts transparent bounding box',()=>{const mask=new Uint8Array(100);mask[2*10+7]=1;const pose={x:100,y:100,size:100,scale:1.5,angle:Math.PI/2};assert(alphaHit(pose,137.5,137.5,mask,10));assert(!alphaHit(pose,100,100,mask,10));assert(!alphaHit(pose,200,200,mask,10));});

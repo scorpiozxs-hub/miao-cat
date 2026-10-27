@@ -1,0 +1,13 @@
+{
+  "modelVersion": "quickdraw-8class-64-v2",
+  "shape": [
+    1,
+    1,
+    64,
+    64
+  ],
+  "score": 71,
+  "fixtureId": "5085309404446720",
+  "pageErrors": [],
+  "note": "Read-only local inference smoke test; no artwork submitted and no cloud data modified."
+}

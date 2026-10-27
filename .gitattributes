@@ -1,0 +1,11 @@
+* text=auto
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.onnx -text
+*.data -text
+*.png -text
+*.webp -text
+*.zip -text

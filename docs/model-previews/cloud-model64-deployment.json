@@ -1,0 +1,21 @@
+{
+  "functions": [
+    {
+      "name": "miao-api",
+      "status": "Active",
+      "modelVersion": "quickdraw-8class-64-v2",
+      "runtime": "Nodejs20.19"
+    },
+    {
+      "name": "miao-maintenance",
+      "status": "Active",
+      "modelVersion": "quickdraw-8class-64-v2",
+      "runtime": "Nodejs20.19"
+    }
+  ],
+  "apiRules": {
+    "modelVersion": "quickdraw-8class-64-v2",
+    "preprocessVersion": "alpha-area-64-v2",
+    "rulesVersion": "find-cat-v4.1"
+  }
+}

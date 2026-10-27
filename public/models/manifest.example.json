@@ -1,0 +1,41 @@
+{
+  "modelVersion": "quickdraw-8class-64-v2",
+  "preprocessVersion": "alpha-area-64-v2",
+  "url": "/models/quickdraw-8class-64.onnx",
+  "sha256": "REPLACE_WITH_TRAINED_MODEL_SHA256",
+  "input": {
+    "name": "image",
+    "shape": [
+      1,
+      1,
+      64,
+      64
+    ],
+    "dtype": "float32",
+    "foreground": "alpha",
+    "background": 0,
+    "padding": 4,
+    "resize": "integer-area-coverage",
+    "contrast": "sqrt"
+  },
+  "output": {
+    "name": "logits",
+    "type": "logits",
+    "classes": [
+      "cat",
+      "dog",
+      "rabbit",
+      "fish",
+      "bear",
+      "mouse",
+      "face",
+      "house"
+    ],
+    "catIndex": 0
+  },
+  "score": {
+    "rounding": "Math.round(p * 100)",
+    "thresholdExclusive": 50
+  },
+  "license": "Confirm the model distribution license and retain Google Quick, Draw! Dataset attribution"
+}

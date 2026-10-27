@@ -1,0 +1,17 @@
+{
+  "name": "miao-find-cat-api",
+  "version": "0.4.1",
+  "private": true,
+  "type": "commonjs",
+  "main": "index.cjs",
+  "scripts": {
+    "test": "node --test test/*.test.cjs",
+    "init": "node scripts/init.cjs"
+  },
+  "dependencies": {
+    "@cloudbase/node-sdk": "^3.0.0",
+    "sharp": "^0.34.0",
+    "tencentcloud-sdk-nodejs-ims": "^4.1.327",
+    "tencentcloud-sdk-nodejs-tms": "^4.1.311"
+  }
+}

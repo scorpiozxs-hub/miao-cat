@@ -1,4 +1,5 @@
 import type { Artwork, Stroke } from './types';
+import {preprocessAlpha,INPUT_SIZE} from './recognition/preprocess.mjs';
 export const SIZE = 800;
 export function paint(ctx: CanvasRenderingContext2D, strokes: Stroke[]) {
   ctx.clearRect(0,0,SIZE,SIZE);
@@ -28,6 +29,12 @@ export function exportArt(canvas: HTMLCanvasElement) {
   return out.toDataURL('image/png');
 }
 export function modelInput(canvas: HTMLCanvasElement, size: number) {
+  if(size===INPUT_SIZE){
+    const pixels=canvas.getContext('2d',{willReadFrequently:true})!.getImageData(0,0,canvas.width,canvas.height).data;
+    const alpha=new Uint8Array(canvas.width*canvas.height);
+    for(let i=0;i<alpha.length;i++)alpha[i]=pixels[i*4+3];
+    return preprocessAlpha(alpha,canvas.width,canvas.height);
+  }
   const box=inkBounds(canvas); if(!box)return null;
   const c=document.createElement('canvas'); c.width=c.height=size; const ctx=c.getContext('2d')!;
   const scale=(size-4)/Math.max(box.w,box.h); const w=box.w*scale,h=box.h*scale;
