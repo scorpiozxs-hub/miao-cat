@@ -22,6 +22,14 @@ def main():
     assets=[]
     assets.append(package(out/'miao-cat-training-state.zip',ROOT/'training/artifacts','training/artifacts',lambda f:f.suffix not in ['.pyc','.log']))
     assets.append(package(out/'miao-cat-drawing-data.zip',data_root(),'training/data',lambda f:f.suffix.lower() in ['.ndjson','.json','.jsonl','.png','.svg','.md','.mjs'] and '.download' not in f.name))
-    (out/'SHA256SUMS.txt').write_text(''.join(a['sha256']+'  '+a['name']+'\n' for a in assets),encoding='utf8')
+    for asset in assets:
+        asset['parts']=[]
+        with (out/asset['name']).open('rb') as f:
+            index=1
+            while chunk:=f.read(16*1024*1024):
+                name=asset['name']+f'.part{index:03d}';(out/name).write_bytes(chunk)
+                asset['parts'].append({'name':name,'bytes':len(chunk),'sha256':hashlib.sha256(chunk).hexdigest()});index+=1
+    entries=[entry for asset in assets for entry in [asset,*asset['parts']]]
+    (out/'SHA256SUMS.txt').write_text(''.join(a['sha256']+'  '+a['name']+'\n' for a in entries),encoding='utf8')
     (out/'ASSETS.json').write_text(json.dumps({'repository':'scorpiozxs-hub/miao-cat','assets':assets},indent=2))
 if __name__=='__main__':main()

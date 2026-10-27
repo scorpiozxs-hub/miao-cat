@@ -38,7 +38,7 @@ VITE_CLOUDBASE_API_FUNCTION=miao-api
 
 ## 3. 恢复完整训练状态与原始画作
 
-只开发网页可以跳过本节。继续训练时，下载开发快照Release的两个zip与SHA256SUMS.txt。你自己的Github账号需重新登录；公开资产也可直接在浏览器下载。
+只开发网页可以跳过本节。继续训练时，下载开发快照Release的全部.zip.part分片、ASSETS.json与SHA256SUMS.txt。你自己的Github账号需重新登录；公开资产也可直接在浏览器下载。
 
 [打开开发快照](https://github.com/scorpiozxs-hub/miao-cat/releases/tag/dev-snapshot-2026-10-28)
 
@@ -49,7 +49,7 @@ gh release download dev-snapshot-2026-10-28 --repo scorpiozxs-hub/miao-cat --dir
 python scripts/restore-training.py migration-assets
 ~~~
 
-恢复工具校验压缩包SHA-256及每个文件SHA-256，拒绝路径越界，不覆盖已经修改过的文件。恢复后：
+恢复工具按ASSETS.json自动拼接分片，校验每片、完整压缩包及每个文件的SHA-256，拒绝路径越界，不覆盖已经修改过的文件。请把22个分片放在同一下载目录，不要自行改名。恢复后：
 
 | 目录 | 内容 |
 | --- | --- |
